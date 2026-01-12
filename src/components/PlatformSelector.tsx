@@ -35,7 +35,7 @@ const PlatformSelector = ({ selectedPlatform, onSelectPlatform }: PlatformSelect
         </Menu.Positioner>
       </Portal>
     </Menu.Root>
-  );
+  )
 };
 
 export default PlatformSelector;
