@@ -1,27 +1,41 @@
-import { Button, Portal, Menu, MenuItem, StatValueText } from '@chakra-ui/react'
+import { Button, Portal, Menu, MenuItem } from "@chakra-ui/react";
 
-const SortSelector = () => {
-  return (
-   <Menu.Root>
-         <Menu.Trigger asChild>
-           <Button variant="outline" size="sm">
-             Sort Selector
-           </Button>
-         </Menu.Trigger>
-         <Portal>
-           <Menu.Positioner>
-             <Menu.Content>
-              <MenuItem value='1' >1</MenuItem>
-              <MenuItem value='2'>2</MenuItem>
-              <MenuItem value='3'>3</MenuItem>
-              <MenuItem value='4'>4</MenuItem>
-              <MenuItem value='5'>5</MenuItem>
-              <MenuItem value='6'>6</MenuItem>
-             </Menu.Content>
-           </Menu.Positioner>
-         </Portal>
-       </Menu.Root>
-  )
+interface onSelectSortOrder{
+  onSelect: (sortOrder: string) => void;
+  sortLabel?: string;
 }
 
-export default SortSelector
+const SortSelector = ({ onSelect, sortLabel }: onSelectSortOrder) => {
+  const sortOrder = [
+    { value: "", label: "Relevance" },
+    { value: "-added", label: "Date Added" },
+    { value: "-metacritic", label: "Popularity" },
+    { value: "-released", label: "Release Date" },
+    { value: "-rating", label: "Average Rating" },
+  ];
+
+  const selectedSortLabel = sortOrder.find((o) => o.value === sortLabel)
+
+  return (
+    <Menu.Root>
+      <Menu.Trigger asChild>
+        <Button variant="outline" size="sm">
+          Order By {selectedSortLabel?.label || 'Relevance'}
+        </Button>
+      </Menu.Trigger>
+      <Portal>
+        <Menu.Positioner>
+          <Menu.Content>
+            {sortOrder.map((o) => (
+              <MenuItem onClick={() => {onSelect(o.value)} } key={o.value} value={o.value}>
+                {o.label}
+              </MenuItem>
+            ))}
+          </Menu.Content>
+        </Menu.Positioner>
+      </Portal>
+    </Menu.Root>
+  );
+};
+
+export default SortSelector;
