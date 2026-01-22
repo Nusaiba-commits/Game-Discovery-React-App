@@ -1,12 +1,30 @@
-import { Input, InputGroup } from "@chakra-ui/react"
-import { IoSearchSharp } from "react-icons/io5"
+import { Input, InputGroup } from "@chakra-ui/react";
+import { useRef } from "react";
+import { IoSearchSharp } from "react-icons/io5";
 
-const SearchInput = () => {
-  return (
-    <InputGroup startElement={<IoSearchSharp />}>
-    <Input placeholder="Search games" borderRadius={30} variant={"subtle"}/>
-  </InputGroup>
-  )
+interface SearchInputProps {
+  onSearch: (searchText: string) => void;
 }
 
-export default SearchInput
+const SearchInput = ( { onSearch } : SearchInputProps ) => {
+  const ref = useRef<HTMLInputElement>(null);
+
+  return (
+    <form style={ { width:'85%', padding: '2%' } } onSubmit={ (event) => {
+      event.preventDefault();
+      if (ref.current) onSearch(ref.current.value)
+
+    }}>
+      <InputGroup startElement={<IoSearchSharp />}>
+        <Input
+          ref={ref}
+          placeholder="Search games"
+          borderRadius={30}
+          variant={"subtle"}
+        />
+      </InputGroup>
+    </form>
+  );
+};
+
+export default SearchInput;

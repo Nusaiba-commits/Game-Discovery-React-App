@@ -21,7 +21,7 @@ const ColorModeSwitch = () => {
             </Switch.ThumbIndicator>
           </Switch.Thumb>
         </Switch.Control>
-        <Switch.Label whiteSpace="nowrap">Dark Mode</Switch.Label>
+        <Switch.Label>Dark Mode</Switch.Label>
       </Switch.Root>
     </HStack>
   );
