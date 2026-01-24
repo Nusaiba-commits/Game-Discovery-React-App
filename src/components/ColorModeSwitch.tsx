@@ -1,7 +1,6 @@
-import { HStack, Switch} from "@chakra-ui/react";
+import { HStack, Switch } from "@chakra-ui/react";
 import { useColorMode } from "./ui/color-mode";
-import { HiCheck, HiX} from "react-icons/hi";
-
+import { HiCheck, HiX } from "react-icons/hi";
 
 const ColorModeSwitch = () => {
   const { toggleColorMode, colorMode } = useColorMode();
