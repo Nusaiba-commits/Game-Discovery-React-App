@@ -13,8 +13,8 @@ interface GameCardProps {
 const GameCard = ({ game }: GameCardProps) => {
   const { colorMode } = useColorMode();
   let cardRootbgcolor: string = "";
-  if (colorMode === "dark") cardRootbgcolor = "gray.700";
-  else cardRootbgcolor = "gray.muted";
+  if (colorMode === "dark") cardRootbgcolor = "brand.700";
+  else cardRootbgcolor = "brand.100";
 
   return (
     <Card.Root
@@ -27,7 +27,9 @@ const GameCard = ({ game }: GameCardProps) => {
         alt="game picture"
       />
       <Card.Header fontSize="xl">
-        {game.name} <Emojis rating={game.rating_top} />
+        <HStack>
+          {game.name} <Emojis rating={game.rating_top} />
+        </HStack>
       </Card.Header>
       <Card.Body>
         <Card.Description>

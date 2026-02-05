@@ -6,7 +6,10 @@ interface PlatformSelectorProps {
   onSelectPlatform: (platform: Platform) => void;
 }
 
-const PlatformSelector = ({ selectedPlatform, onSelectPlatform }: PlatformSelectorProps) => {
+const PlatformSelector = ({
+  selectedPlatform,
+  onSelectPlatform,
+}: PlatformSelectorProps) => {
   const { data, error } = usePlatform();
 
   if (error) return null;
@@ -15,7 +18,7 @@ const PlatformSelector = ({ selectedPlatform, onSelectPlatform }: PlatformSelect
     <Menu.Root>
       <Menu.Trigger asChild>
         <Button variant="outline" size="sm">
-          {selectedPlatform?.name || 'Platforms'}
+          {selectedPlatform?.name || "Platforms"}
         </Button>
       </Menu.Trigger>
       <Portal>
@@ -26,7 +29,9 @@ const PlatformSelector = ({ selectedPlatform, onSelectPlatform }: PlatformSelect
                 onClick={() => onSelectPlatform(p)}
                 key={p.id}
                 value={p.slug}
-                fontWeight={p.id == selectedPlatform?.id ? "extrabold" : "normal"}
+                fontWeight={
+                  p.id == selectedPlatform?.id ? "extrabold" : "normal"
+                }
               >
                 {p.name}
               </Menu.Item>
@@ -35,7 +40,7 @@ const PlatformSelector = ({ selectedPlatform, onSelectPlatform }: PlatformSelect
         </Menu.Positioner>
       </Portal>
     </Menu.Root>
-  )
+  );
 };
 
 export default PlatformSelector;

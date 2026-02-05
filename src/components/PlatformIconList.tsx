@@ -5,12 +5,17 @@ import {
   FaApple,
   FaXbox,
   FaLinux,
-  FaNeos
+  FaNeos,
 } from "react-icons/fa";
 import { MdPhoneIphone } from "react-icons/md";
-import { SiNintendo } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
-import { SiAtari, SiD3Dotjs, SiSega, SiCommodore } from "react-icons/si";
+import {
+  SiNintendo,
+  SiAtari,
+  SiD3Dotjs,
+  SiSega,
+  SiCommodore,
+} from "react-icons/si";
 import { Platform } from "../hooks/usePlatforms";
 import { HStack, Icon } from "@chakra-ui/react";
 import { IconType } from "react-icons";
@@ -32,17 +37,17 @@ const PlatformIconList = ({ platforms }: PlatformIconListProps) => {
     web: BsGlobe,
     applemacintosh: FaApple,
     atari: SiAtari,
-    'commodore-amiga': SiCommodore,
+    "commodore-amiga": SiCommodore,
     sega: SiSega,
-    '3do': SiD3Dotjs,
-    'neo-geo': FaNeos,
+    "3do": SiD3Dotjs,
+    "neo-geo": FaNeos,
   };
 
   return (
     <HStack>
-        {platforms.map((platform) => (
-          <Icon key={platform.id} as={iconMap[platform.slug]} />
-        ))}
+      {platforms.map((platform) => (
+        <Icon key={platform.id} as={iconMap[platform.slug]} />
+      ))}
     </HStack>
   );
 };
