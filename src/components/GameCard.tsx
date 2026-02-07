@@ -27,19 +27,17 @@ const GameCard = ({ game }: GameCardProps) => {
         alt="game picture"
       />
       <Card.Header fontSize="xl">
-        <HStack>
+        <HStack justifyContent="space-between">
           {game.name} <Emojis rating={game.rating_top} />
         </HStack>
       </Card.Header>
       <Card.Body>
-        <Card.Description>
-          <HStack justify={"space-between"}>
-            <PlatformIconList
-              platforms={game.parent_platforms.map((p) => p.platform)}
-            />
-            <MetacriticScore score={game.metacritic} />
-          </HStack>
-        </Card.Description>
+        <HStack justify={"space-between"}>
+          <PlatformIconList
+            platforms={game.parent_platforms.map((p) => p.platform)}
+          />
+          <MetacriticScore score={game.metacritic} />
+        </HStack>
       </Card.Body>
     </Card.Root>
   );

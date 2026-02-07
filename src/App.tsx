@@ -23,7 +23,7 @@ function App() {
     <Grid
       templateAreas={{
         base: `"nav" "main"`,
-        lg: `"nav nav" "aside main"`, //larger than 1024 px
+        lg: `"nav nav" "aside main"`, 
       }}
       templateColumns={{
         base: "1fr",
