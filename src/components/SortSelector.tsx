@@ -18,11 +18,13 @@ const SortSelector = ({ onSelect, sortLabel }: onSelectSortOrder) => {
 
   return (
     <Menu.Root>
-      <Menu.Trigger asChild>
-        <Button variant="outline" size="sm">
-          Order By {selectedSortLabel?.label || "Relevance"}
-        </Button>
-      </Menu.Trigger>
+      <Menu.Trigger
+        children={
+          <Button variant="outline" size="sm">
+            Order By {selectedSortLabel?.label || "Relevance"}
+          </Button>
+        }
+      ></Menu.Trigger>
       <Portal>
         <Menu.Positioner>
           <Menu.Content>
@@ -31,7 +33,6 @@ const SortSelector = ({ onSelect, sortLabel }: onSelectSortOrder) => {
                 onClick={() => {
                   onSelect(o.value);
                 }}
-                key={o.value}
                 value={o.value}
               >
                 {o.label}

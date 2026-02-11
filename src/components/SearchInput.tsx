@@ -12,7 +12,7 @@ const SearchInput = ({ onSearch }: SearchInputProps) => {
   return (
     <form
       style={{ width: "85%", padding: "2%" }}
-      onSubmit={(event) => {
+      onSubmit={(event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if (ref.current) onSearch(ref.current.value);
       }}
