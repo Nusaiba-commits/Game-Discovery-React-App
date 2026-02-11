@@ -16,11 +16,13 @@ const PlatformSelector = ({
 
   return (
     <Menu.Root>
-      <Menu.Trigger asChild>
-        <Button variant="outline" size="sm">
-          {selectedPlatform?.name || "Platforms"}
-        </Button>
-      </Menu.Trigger>
+      <Menu.Trigger
+        children={
+          <Button variant="outline" size="sm">
+            {selectedPlatform?.name || "Platforms"}
+          </Button>
+        }
+      ></Menu.Trigger>
       <Portal>
         <Menu.Positioner>
           <Menu.Content>
